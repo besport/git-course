@@ -157,3 +157,18 @@ merge but no commit
 git remote add github git@github.com:besport/git-course.git
 git remote add work2 ../git-course2
 git diff work2/master github/master
+** git bisect
+helps you go through history to pinpoint bug
+git bisect start
+git bisect bad
+git bisect good <commit>
+git bisect run <command>
+
+will find the commit that introduces the bug.
+command must return 0 when there is no bug, and return 1 (non zero) when there is a bug.
+
+*** exercise 5
+on branch find_bad_commit
+HEAD is bad.
+last known good commit: 85ee81e412fbeb9bda57741d289e6f424216d9c9
+find the commit that introduces the bug, the bug is that ./work/ex3.sh returns non zero.
