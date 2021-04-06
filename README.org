@@ -1,0 +1,8 @@
+#+TITLE: Git basics
+
+* blobs & trees
+git cat-file -p a29bcd227935acbc0b149252a4f0c709dab6647e => commit
+git cat-file -p 8cd9dfe7c978bdeb3b78cbca77864d4d59ca58d2 => tree
+git cat-file -p e69de29bb2d1d6434b8b29ae775ad8c2e48c5391 => empty file.
+
+let's commit this.
