@@ -10,4 +10,5 @@ let _ =
   print_string " - ";
   let answer = i + j in
   print_int answer;
-  print_endline " is the answer"
+  print_endline " is the answer";
+  print_endline "we also want this message"
