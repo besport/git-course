@@ -1,8 +1,21 @@
 #+TITLE: Git basics
 
-* blobs & trees
-git cat-file -p a29bcd227935acbc0b149252a4f0c709dab6647e => commit
-git cat-file -p 8cd9dfe7c978bdeb3b78cbca77864d4d59ca58d2 => tree
-git cat-file -p e69de29bb2d1d6434b8b29ae775ad8c2e48c5391 => empty file.
+* git internals: commits, trees & blobs.
+
+git cat-file -p b1314d99959cfb31b46cfb3ff6b61ed69eba11b1 => commit
+git cat-file -p 05755f45e56b77595d8d28668402d674d6c97d8b => tree
+git cat-file -p 65c99f780903e84a066531281c72640242025cfb => blob
 
 let's commit this.
+
+we get:
+
+** exercice 1:
+what is the content of secret.txt?
+git cat-file -p ad12e281e300fdb4fcffad5260579803f0064e0c
+
+** history
+cat .git/HEAD
+cat .git/refs/heads/master
+
+history is a linked list of commits that each reference a tree.
