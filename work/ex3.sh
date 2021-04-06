@@ -1,4 +1,4 @@
 #! /bin/sh
 
-echo 672
+echo 673
 exit 0
