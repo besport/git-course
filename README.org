@@ -79,7 +79,6 @@ git reset --hard
 * workflow
 All features should be developed in a branch created for it.
 That means you never commit on master.
-
 ** simple fetch, create, push
 git fetch <remote>
 => fetches remotes branches and stores them in branches named remote/branches
@@ -147,13 +146,11 @@ to form a single commit "[code] calc answer"
 *** exercise 4
 once the rebase is done how long is the diff of the two last commits:
 git diff HEAD^^..HEAD
-
-
-* remotes
+* misc
+** cherry picking
+git cherry-pick <commit>
+replays that commit to current tree
+** merge --squash
+merge but no commit
+** remotes
 git remote add github git@github.com:besport/git-course.git
-* rebasing
-
-* cherry picking
-* fetch vs pull
-* push
-* tag
