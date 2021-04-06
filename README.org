@@ -21,20 +21,51 @@ cat .git/refs/heads/master
 history is a linked list of commits that each reference a tree.
 
 * everyday commands
+** init & clone
+git init
+=> create a new repo
+git clone git@github.com:besport/git-course
+** inspection
 git status
 => shows you the state of the repository
 git branch
 => shows you local branches
 git branch -a
 => shows you all branches
-git commit -a -m "[doc] explain commits"
-=> this creates a new commit after adding all modifications to staging
-** log
+*** log
 git log
 => list of commits
 git log --stat
 => list of commits with file modification statistics
 git log --patch
 => list of commits with patches
-* staging
-* committing
+*** git diff
+git diff --stat branch
+=> shows file stats to from current tree to branch
+git diff branch
+=> shows patch
+** checkout
+git checkout <exisiting-branch-name>
+=> checks out tree corresponding to that branch
+git checkout -b <new-branch>
+** staging
+staging: it's a temporary space in which you prepare your commit
+git add <file>
+=> adds all modifications of file to staging.
+git add --interactive
+=> choose individual hunks (patches) to commit
+git reset
+=> removes everything from staging
+** committing
+git commit
+=> commits the current staging with $EDITOR for commit message.
+git commit -m "[doc] explain everything"
+=> commits the current staging to a commit with -m message
+git commit -a -m "[doc] explain commits"
+=> this creates a new commit after adding all modifications to staging
+see: [[https://github.com/besport/bs/wiki/Coding-style][bs coding style/commit format]]
+* remotes
+remote add github git@github.com:besport/git-course.git
+* rebasing
+* cherry picking
+* -
