@@ -71,8 +71,14 @@ git commit -m "[doc] explain everything"
 git commit -a -m "[doc] explain commits"
 => this creates a new commit after adding all modifications to staging
 see: [[https://github.com/besport/bs/wiki/Coding-style][bs coding style/commit format]]
+** misc
+git reset --hard
+=> removes all modifications
 * remotes
-remote add github git@github.com:besport/git-course.git
+git remote add github git@github.com:besport/git-course.git
 * rebasing
+
 * cherry picking
-* -
+* fetch vs pull
+* push
+* tag
