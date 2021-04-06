@@ -1,2 +1,2 @@
 let _ =
-  print_endline "hello universe"
+  print_endline "hello world!"

@@ -24,6 +24,12 @@ cat .git/refs/heads/master
 history is a linked list of commits that each reference a tree.
 
 * everyday commands
+** man
+git has extensive documentation for each sub command:
+#+begin_src shell
+man git-clone
+man git-bisect
+#+end_src
 ** init & clone
 #+begin_src shell
 git init
@@ -86,6 +92,14 @@ git checkout <exisiting-branch-name>
 git checkout -b <new-branch>
 #+end_src
 => creates new branch starting from current tree
+#+begin_src shell
+git checkout --track origin/old_master
+#+end_src
+=> creates a new branch that tracks origin branch.
+if there is no ambiguity git will do this with the following syntax:
+#+begin_src shell
+git checkout <exisiting-branch-name>
+#+end_src
 ** staging
 staging: it's a temporary space in which you prepare your commit
 #+begin_src shell
