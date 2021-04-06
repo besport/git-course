@@ -1,4 +1,4 @@
 #! /bin/sh
 
-echo 123
+echo 124
 exit 0
