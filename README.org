@@ -2,174 +2,259 @@
 
 * git internals: commits, trees & blobs.
 
-git cat-file -p b1314d99959cfb31b46cfb3ff6b61ed69eba11b1 => commit
-git cat-file -p 05755f45e56b77595d8d28668402d674d6c97d8b => tree
-git cat-file -p 65c99f780903e84a066531281c72640242025cfb => blob
-
-let's commit this.
-
-we get:
+#+begin_src shell
+git cat-file -p b1314d99959cfb31b46cfb3ff6b61ed69eba11b1 # commit
+git cat-file -p 05755f45e56b77595d8d28668402d674d6c97d8b # tree
+git cat-file -p 65c99f780903e84a066531281c72640242025cfb # blob
+#+end_src
 
 ** exercise 1:
-what is the content of secret.txt?
+starting with commit ad12e281e300fdb4fcffad5260579803f0064e0c:
+#+begin_src shell
 git cat-file -p ad12e281e300fdb4fcffad5260579803f0064e0c
+#+end_src
+what is the content of secret.txt?
 
 ** history
+#+begin_src shell
 cat .git/HEAD
 cat .git/refs/heads/master
+#+end_src
 
 history is a linked list of commits that each reference a tree.
 
 * everyday commands
 ** init & clone
+#+begin_src shell
 git init
+#+end_src
 => create a new repo
+#+begin_src shell
 git clone git@github.com:besport/git-course
+#+end_src
 => clones an existing repo locally
 ** inspection
+#+begin_src shell
 git status
+#+end_src
 => shows you the state of the repository
+#+begin_src shell
 git branch
+#+end_src
 => shows you local branches
+#+begin_src shell
 git branch -a
+#+end_src
 => shows you all branches
 *** log
+#+begin_src shell
 git log
+#+end_src
 => list of commits
+#+begin_src shell
 git log --stat
+#+end_src
 => list of commits with file modification statistics
+#+begin_src shell
 git log --patch
+#+end_src
 => list of commits with patches
 *** git diff
+#+begin_src shell
 git diff --stat branch
+#+end_src
 => shows file stats to from current tree to branch
+#+begin_src shell
 git diff branch
+#+end_src
 => shows patch between current tree & branch
+#+begin_src shell
 git diff branch_1..branch_2
 git diff HEAD^..branch_2
 git diff branch_x..a1234
+#+end_src
 => diff between different git revisions which can be HEAD (relative to current tree history), <commit hash>, branch name, tag name.
 **** exercise 2
 how many lines is the diff between commit 35c81 and branch_1?
 hint: use wc -l
 ** checkout
+#+begin_src shell
 git checkout <exisiting-branch-name>
+#+end_src
 => checks out tree corresponding to that branch
+#+begin_src shell
 git checkout -b <new-branch>
+#+end_src
 => creates new branch starting from current tree
 ** staging
 staging: it's a temporary space in which you prepare your commit
+#+begin_src shell
 git add <file>
+#+end_src
 => adds all modifications of file to staging.
+#+begin_src shell
 git add --interactive
+#+end_src
 => choose individual hunks (patches) to commit
+#+begin_src shell
 git reset
+#+end_src
 => removes everything from staging
 ** committing
+#+begin_src shell
 git commit
+#+end_src
 => commits the current staging with $EDITOR for commit message.
+#+begin_src shell
 git commit -m "[doc] explain everything"
+#+end_src
 => commits the current staging to a commit with -m message
+#+begin_src shell
 git commit -a -m "[doc] explain commits"
+#+end_src
 => this creates a new commit after adding all modifications to staging
 see: [[https://github.com/besport/bs/wiki/Coding-style][bs coding style/commit format]]
 ** misc
+#+begin_src shell
 git reset --hard
+#+end_src
 => removes all modifications
 
 * workflow
 All features should be developed in a branch created for it.
 That means you never commit on master.
 ** simple fetch, create, push
+#+begin_src shell
 git fetch <remote>
+#+end_src
 => fetches remotes branches and stores them in branches named remote/branches
+#+begin_src shell
 git fetch
+#+end_src
 => fetch from origin
+#+begin_src shell
 git checkout master
+#+end_src
 => go to your local master
+#+begin_src shell
 git merge origin/master
+#+end_src
 => merge origin/master in master, they should now have the exact same history
 
 these steps can be done with git pull.
 careful not to do so in a local branch which could break your commit history.
 
+#+begin_src shell
 git checkout -b new_feature
+#+end_src
 => create a branch from master
 <code things and commit>
+#+begin_src shell
 git add -i
 git commit ...
 git push
+#+end_src
 => pushes your branch with local name as destination name:
+#+begin_src shell
 git push origin new_feature:new_feature
+#+end_src
 full syntax:
+#+begin_src shell
 git push origin local_branch_name:remote_destination_branch_name
+#+end_src
 ** github: pull requests
-you do not push on master
-you push on a new branch
-description is important
-commit history is important
-you do not merge your own branch
+- you do not push on master
+- you push on a new branch
+- description is important
+- commit history is important
+- you do not merge your own branch
 ** old branch needs to be updated
+#+begin_src shell
 git fetch
+#+end_src
 => fetch from origin
+#+begin_src shell
 git checkout old_feature
+#+end_src
 => go to your out of date branch
+#+begin_src shell
 git rebase origin/master
+#+end_src
 => replays your commits on top of origin/master
 *** exercise 3
+#+begin_src shell
 git checkout old_master
-create your own branch from here: git checkout -b <name_ex3>
-add a file in answers/<your name>.txt
-add the answers to exercise 1 & 2 on separate lines:
+#+end_src
+**** create your own branch from here: git checkout -b <name_ex3>
+**** add a file in answers/<your name>.txt
+**** add the answers to exercise 1 & 2 on separate lines:
+#+begin_src
 1: answer1
 2: answer2
-commit
-rebase on top of origin/master
-create a pull request
+#+end_src
+**** commit
+**** rebase on top of origin/master
+**** create a pull request
 ** rebasing for a prettier history
+#+begin_src shell
 git checkout dirty_branch
 git log
+#+end_src
 => choose commit from which rebasing will start
+#+begin_src shell
 git rebase -i cb82502e5a83cc8faa04ee0f0ec8c3c350d2c91c
+#+end_src
 => edit commits
-common actions:
-reword: use commit, but edit the commit message
-edit: use commit, but stop for amending
-squash: use commit, but meld into previous commit
-fixup: like "squash", but discard this commit's log message
-drop: remove commit
+*** common actions:
+- reword: use commit, but edit the commit message
+- edit: use commit, but stop for amending
+- squash: use commit, but meld into previous commit
+- fixup: like "squash", but discard this commit's log message
+- drop: remove commit
 
-we want to remove [remove me] add debug
-[code] calc answer (not working?)
-we do not want to keep the broken state in the history, we want to add fix:
-[fix] fix the answer!
-to form a single commit "[code] calc answer"
 *** exercise 4
-once the rebase is done how long is the diff of the two last commits:
+on branch dirty_branch:
+**** we want to remove [remove me] add debug
+**** fixup
+#+begin_src
+[code] calc answer (not working?)
+#+end_src
+we do not want to keep the broken state in the history, we want to add fix:
+#+begin_src
+[fix] fix the answer!
+#+end_src
+to form a single commit "[code] calc answer"
+
+**** once the rebase is done how long is the diff of the two last commits:
 git diff HEAD^^..HEAD
 update your pull request to add the answer to your answer file.
 * misc
 ** cherry picking
+#+begin_src shell
 git cherry-pick <commit>
+#+end_src
 replays that commit to current tree
 ** merge --squash
 merge but no commit
 ** remotes
+#+begin_src shell
 git remote add github git@github.com:besport/git-course.git
 git remote add work2 ../git-course2
 git diff work2/master github/master
+#+end_src
 ** git bisect
 helps you go through history to pinpoint bug
+#+begin_src shell
 git bisect start
 git bisect bad
 git bisect good <commit>
 git bisect run <command>
+#+end_src
 
 will find the commit that introduces the bug.
 command must return 0 when there is no bug, and return 1 (non zero) when there is a bug.
 
 *** exercise 5
-on branch find_bad_commit
-HEAD is bad.
+on branch find_bad_commit, HEAD is bad.
 last known good commit: 85ee81e412fbeb9bda57741d289e6f424216d9c9
 find the commit that introduces the bug, the bug is that ./work/ex3.sh returns non zero.
