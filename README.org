@@ -74,6 +74,39 @@ see: [[https://github.com/besport/bs/wiki/Coding-style][bs coding style/commit f
 ** misc
 git reset --hard
 => removes all modifications
+
+* workflow
+All features should be developed in a branch created for it.
+That means you never commit on master.
+
+** simple fetch, create, push
+git fetch <remote>
+=> fetches remotes branches and stores them in branches named remote/branches
+git fetch
+=> fetch from origin
+git checkout master
+=> go to your local master
+git merge origin/master
+=> merge origin/master in master, they should now have the exact same history
+git checkout -b new_feature
+=> create a branch from master
+# code things and commit
+git add -i
+git commit ...
+git push
+=> pushes your branch with local name as destination name:
+git push origin new_feature:new_feature
+full syntax:
+git push origin local_branch_name:remote_destination_branch_name
+** old branch needs to be updated
+git fetch
+=> fetch from origin
+git checkout old_feature
+=> go to your out of date branch
+git rebase origin/master
+=> replays your commits on top of origin/master
+** rebasing
+git checkout
 * remotes
 git remote add github git@github.com:besport/git-course.git
 * rebasing
