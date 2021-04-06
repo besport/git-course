@@ -1,4 +1,4 @@
 #! /bin/sh
 
-echo 665
+echo 666
 exit 0
