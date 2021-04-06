@@ -1,4 +1,4 @@
 #! /bin/sh
 
-echo 526
+echo 527
 exit 0
