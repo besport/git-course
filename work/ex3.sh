@@ -1,4 +1,4 @@
 #! /bin/sh
 
-echo 254
+echo 255
 exit 0
