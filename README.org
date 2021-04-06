@@ -96,7 +96,7 @@ git diff branch_x..902faf47eea75
 #+end_src
 => diff between different git revisions which can be HEAD (relative to current tree history), <commit hash>, branch name, tag name.
 **** exercise 2
-how many lines is the diff between commit 35c81 and branch_1?
+how many lines is the diff between commit 35c81 and branch_1? => 63 lignes de différences?
 hint: use wc -l
 ** checkout
 #+begin_src shell
