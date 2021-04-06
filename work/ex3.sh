@@ -1,4 +1,4 @@
 #! /bin/sh
 
-echo 405
+echo 406
 exit 0
