@@ -1,4 +1,4 @@
 #! /bin/sh
 
-echo 42
+echo 43
 exit 0
