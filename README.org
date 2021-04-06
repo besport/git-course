@@ -77,7 +77,7 @@ git diff branch
 #+begin_src shell
 git diff branch_1..branch_2
 git diff HEAD^..branch_2
-git diff branch_x..a1234
+git diff branch_x..902faf47eea75
 #+end_src
 => diff between different git revisions which can be HEAD (relative to current tree history), <commit hash>, branch name, tag name.
 **** exercise 2
