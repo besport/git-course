@@ -30,6 +30,11 @@ git branch -a
 git commit -a -m "[doc] explain commits"
 => this creates a new commit after adding all modifications to staging
 ** log
-
+git log
+=> list of commits
+git log --stat
+=> list of commits with file modification statistics
+git log --patch
+=> list of commits with patches
 * staging
 * committing
