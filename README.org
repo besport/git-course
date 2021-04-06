@@ -272,10 +272,23 @@ git status
 ** git blame
 #+begin_src shell
 git blame README.org
-git blame answers/*
+git blame answers/<file>
 #+end_src
 *** exercise 7
 at what date & time was this line added?
+** patch
+#+begin_src shell
+git format-patch HEAD^
+#+end_src
+** git stash
+#+begin_src shell
+echo lol >> README.org
+git status
+git stash
+git status
+git stash apply
+git status
+#+end_src
 ** tools
 - shell integration is useful
 - tig (inspection)
