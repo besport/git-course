@@ -46,10 +46,15 @@ git diff branch
 => shows patch between current tree & branch
 git diff branch_1..branch_2
 git diff HEAD^..branch_2
+git diff branch_x..a1234
+=> diff between different git revisions which can be HEAD (relative to current tree history), <commit hash>, branch name, tag name.
+**** exercice 2
+how many lines is the diff between commit 35c81 and branch_1?
 ** checkout
 git checkout <exisiting-branch-name>
 => checks out tree corresponding to that branch
 git checkout -b <new-branch>
+=> creates new branch starting from current tree
 ** staging
 staging: it's a temporary space in which you prepare your commit
 git add <file>
