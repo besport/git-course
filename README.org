@@ -236,8 +236,6 @@ update your pull request to add the answer to your answer file.
 git cherry-pick <commit>
 #+end_src
 replays that commit to current tree
-** merge --squash
-merge but no commit
 ** remotes
 #+begin_src shell
 git remote add github git@github.com:besport/git-course.git
@@ -255,16 +253,29 @@ git bisect run <command>
 
 will find the commit that introduces the bug.
 command must return 0 when there is no bug, and return 1 (non zero) when there is a bug.
-
 *** exercise 5
 on branch find_bad_commit, HEAD is bad.
 last known good commit: 85ee81e412fbeb9bda57741d289e6f424216d9c9
 find the commit that introduces the bug, the bug is that ./work/ex3.sh returns non zero.
+** merge --squash
+merge but no commit
+*** exercise 6
+in a new branch created from master try this:
+#+begin_src shell
+git merge --squash find_bad_commit
+#+end_src
+what happened? was something changed? if so, where? hints:
+#+begin_src shell
+git log --patch find_bad_commit
+git status
+#+end_src
 ** git blame
 #+begin_src shell
 git blame README.org
 git blame answers/*
 #+end_src
+*** exercise 7
+at what date & time was this line added?
 ** tools
 - shell integration is useful
 - tig (inspection)
