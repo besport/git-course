@@ -250,6 +250,7 @@ to form a single commit "[code] calc answer"
 git diff HEAD^^..HEAD
 update your pull request to add the answer to your answer file.
 * misc
+** conflicts example!
 ** cherry picking
 #+begin_src shell
 git cherry-pick <commit>
