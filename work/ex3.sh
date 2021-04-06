@@ -1,4 +1,4 @@
 #! /bin/sh
 
-echo 1005
+echo 1006
 exit 0
