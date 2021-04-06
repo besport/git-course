@@ -19,3 +19,17 @@ cat .git/HEAD
 cat .git/refs/heads/master
 
 history is a linked list of commits that each reference a tree.
+
+* everyday commands
+git status
+=> shows you the state of the repository
+git branch
+=> shows you local branches
+git branch -a
+=> shows you all branches
+git commit -a -m "[doc] explain commits"
+=> this creates a new commit after adding all modifications to staging
+** log
+
+* staging
+* committing
