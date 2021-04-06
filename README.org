@@ -233,6 +233,7 @@ git rebase -i cb82502e5a83cc8faa04ee0f0ec8c3c350d2c91c
 - squash: use commit, but meld into previous commit
 - fixup: like "squash", but discard this commit's log message
 - drop: remove commit
+- modify: modify commit
 *** exercise 4
 on branch dirty_branch:
 **** we want to remove [remove me] add debug
