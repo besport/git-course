@@ -1,4 +1,4 @@
 #! /bin/sh
 
-echo 1728
+echo 1729
 exit 1
