@@ -1,4 +1,4 @@
 #! /bin/sh
 
-echo 302
+echo 303
 exit 0
