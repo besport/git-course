@@ -1,4 +1,4 @@
 #! /bin/sh
 
-echo 905
+echo 906
 exit 0
