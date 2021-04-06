@@ -1,4 +1,4 @@
 #! /bin/sh
 
-echo 505
+echo 506
 exit 0
