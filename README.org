@@ -13,7 +13,22 @@ starting with commit ad12e281e300fdb4fcffad5260579803f0064e0c:
 #+begin_src shell
 git cat-file -p ad12e281e300fdb4fcffad5260579803f0064e0c
 #+end_src
-what is the content of secret.txt?
+what is the content of secret.txt? 
+=>
+<<
+iQFJBAABCAAzFiEEYz2f6UPCNiCznICTa54QvzcuACkFAmBr9pIVHHdpbGxpYW1A
+ dW5kZWZpbmVkLnJlAAoJEGueEL83LgApraEIAIB5fjIJKFseLvXAMit9O5A8gs8J
+ +kKQehvNR+/gPbAFZ8+1QPmv3iYXwmVNOl3B3nUnl+I9NVfGvngBwFUnzaeyoMyq
+ NTSy7MFj7FLX8VPimd3BYmYfpBcyl62T0Aq6TbneHMr0x3s8wUl0lBZgMiIcL+or
+ aujF69+5FpL4kglvXI6gP7yiSsD0PiaRcT0yZH8G0yjQ9tPdNvdaQRZXslWjt5a5
+ vFuMsOBPaDF92UINhtWYjRqp8vuiFWlLJVZXYZdM2zNfC5kteMpem7cE/DNTxaQR
+ EMIa2NVEOJkIL9sN826PHHw/UbuIsIeS+Dc4YXe1ZsnZt3jciXL5FJ71YP0=
+ =1fdC
+ -----END PGP SIGNATURE-----
+
+secret
+>>
+
 
 ** history
 #+begin_src shell
