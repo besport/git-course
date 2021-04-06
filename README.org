@@ -43,7 +43,9 @@ git log --patch
 git diff --stat branch
 => shows file stats to from current tree to branch
 git diff branch
-=> shows patch
+=> shows patch between current tree & branch
+git diff branch_1..branch_2
+git diff HEAD^..branch_2
 ** checkout
 git checkout <exisiting-branch-name>
 => checks out tree corresponding to that branch
