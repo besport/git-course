@@ -197,6 +197,10 @@ git checkout old_master
 **** create a pull request
 ** rebasing for a prettier history
 #+begin_src shell
+git commit --amend
+#+end_src
+=> lets you change/update the latest commit. If you need to change more than that you need to rebase -i:
+#+begin_src shell
 git checkout dirty_branch
 git log
 #+end_src
@@ -211,7 +215,6 @@ git rebase -i cb82502e5a83cc8faa04ee0f0ec8c3c350d2c91c
 - squash: use commit, but meld into previous commit
 - fixup: like "squash", but discard this commit's log message
 - drop: remove commit
-
 *** exercise 4
 on branch dirty_branch:
 **** we want to remove [remove me] add debug
@@ -224,7 +227,6 @@ we do not want to keep the broken state in the history, we want to add fix:
 [fix] fix the answer!
 #+end_src
 to form a single commit "[code] calc answer"
-
 **** once the rebase is done how long is the diff of the two last commits:
 git diff HEAD^^..HEAD
 update your pull request to add the answer to your answer file.
@@ -258,3 +260,13 @@ command must return 0 when there is no bug, and return 1 (non zero) when there i
 on branch find_bad_commit, HEAD is bad.
 last known good commit: 85ee81e412fbeb9bda57741d289e6f424216d9c9
 find the commit that introduces the bug, the bug is that ./work/ex3.sh returns non zero.
+** git blame
+#+begin_src shell
+git blame README.org
+git blame answers/*
+#+end_src
+** tools
+- shell integration is useful
+- tig (inspection)
+- fugitive (vim)
+- magit (emacs)
