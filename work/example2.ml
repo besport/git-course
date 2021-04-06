@@ -1,6 +1,6 @@
 let _ =
   print_endline "hello universe";
-  let i = 30
+  let i = 40
   and j = 2 in
   print_int i;
   print_string " - ";
