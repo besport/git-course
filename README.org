@@ -146,6 +146,7 @@ to form a single commit "[code] calc answer"
 *** exercise 4
 once the rebase is done how long is the diff of the two last commits:
 git diff HEAD^^..HEAD
+update your pull request to add the answer to your answer file.
 * misc
 ** cherry picking
 git cherry-pick <commit>
@@ -154,3 +155,5 @@ replays that commit to current tree
 merge but no commit
 ** remotes
 git remote add github git@github.com:besport/git-course.git
+git remote add work2 ../git-course2
+git diff work2/master github/master
