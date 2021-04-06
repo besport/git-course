@@ -1,4 +1,4 @@
 #! /bin/sh
 
-echo 404
+echo 405
 exit 0
