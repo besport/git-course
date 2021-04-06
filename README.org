@@ -111,6 +111,10 @@ git add --interactive
 #+end_src
 => choose individual hunks (patches) to commit
 #+begin_src shell
+git rm --cached <file>
+#+end_src
+=> remove file from git, but keep it locally.
+#+begin_src shell
 git reset
 #+end_src
 => removes everything from staging
