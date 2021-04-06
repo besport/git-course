@@ -25,6 +25,7 @@ history is a linked list of commits that each reference a tree.
 git init
 => create a new repo
 git clone git@github.com:besport/git-course
+=> clones an existing repo locally
 ** inspection
 git status
 => shows you the state of the repository
