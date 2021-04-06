@@ -1,0 +1,22 @@
+Réponse Exercice 1:
+<<
+iQFJBAABCAAzFiEEYz2f6UPCNiCznICTa54QvzcuACkFAmBr9pIVHHdpbGxpYW1A
+ dW5kZWZpbmVkLnJlAAoJEGueEL83LgApraEIAIB5fjIJKFseLvXAMit9O5A8gs8J
+ +kKQehvNR+/gPbAFZ8+1QPmv3iYXwmVNOl3B3nUnl+I9NVfGvngBwFUnzaeyoMyq
+ NTSy7MFj7FLX8VPimd3BYmYfpBcyl62T0Aq6TbneHMr0x3s8wUl0lBZgMiIcL+or
+ aujF69+5FpL4kglvXI6gP7yiSsD0PiaRcT0yZH8G0yjQ9tPdNvdaQRZXslWjt5a5
+ vFuMsOBPaDF92UINhtWYjRqp8vuiFWlLJVZXYZdM2zNfC5kteMpem7cE/DNTxaQR
+ EMIa2NVEOJkIL9sN826PHHw/UbuIsIeS+Dc4YXe1ZsnZt3jciXL5FJ71YP0=
+ =1fdC
+ -----END PGP SIGNATURE-----
+
+secret
+>>
+
+Réponse Exercice 2:
+63 lignes de différences?
+J'ai crée un document "exo2.txt" avec la commande:
+	git diff branch_1..35c81 >> exo2.txt
+Puis j'ai fais un "wc -l exo2.txt".
+
+
